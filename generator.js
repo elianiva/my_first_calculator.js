@@ -35,12 +35,15 @@ for (let x = 0; x < 4; x++) {
   for (let i = 1; i <= limit; i++) {
     // print with different a variable
     for (let j = 1; j <= limit; j++) {
-      let command = `
+      // append to file
+      fs.appendFileSync(
+        "my_first_calculator.js",
+        `
 if (a === ${i} && sign === "${sign}" && b === ${j} ) {
   console.log('${i} ${sign} ${j} = ${eval(i + sign + j)}')
-} else `
-      // append to file
-      fs.appendFileSync("my_first_calculator.js", command)
+} else
+      `
+      )
     }
   }
 }
